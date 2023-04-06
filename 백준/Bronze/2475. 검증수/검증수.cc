@@ -1,0 +1,9 @@
+#include <iostream>
+
+int main(void) {
+	using namespace std;
+	int a, b, c, d, e;
+	cin >> a >> b >> c >> d >> e;
+	cout << (a * a + b * b + c * c + d * d + e * e) % 10 << endl;
+	return 0;
+}
