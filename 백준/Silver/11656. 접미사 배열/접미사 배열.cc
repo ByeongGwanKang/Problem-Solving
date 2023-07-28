@@ -2,6 +2,8 @@
 using namespace std;
 
 int main(void){
+	cin.tie(0);
+	ios::sync_with_stdio(0);
 	string str;
 	cin>>str;
 	int len = str.length();
