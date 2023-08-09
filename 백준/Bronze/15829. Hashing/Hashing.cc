@@ -8,11 +8,16 @@ int main(void){
 	string str;
 	cin.ignore();
 	getline(cin,str);
-	int val;
-	int sum=0;
+	long long val;
+	long long sum=0;
 	for(int i=0;i<l;i++){
 		val = (int)str[i]-96;
-		sum+=(val*(pow(31,i)));
+		for(int j=0;j<i;j++){
+			val*=31;
+			if(val>=1234567891)
+				val%=1234567891;
+		}
+		sum+=val;
 		if(sum>=1234567891)
 			sum%=1234567891;
 	}
