@@ -17,8 +17,8 @@ int main(void){
 		if(n==0&&m==0)
 			return 0;
 		cnt=0;
-		fill(arr[0],arr[0]+2500,0);
-		fill(visited[0],visited[0]+2500,false);
+		memset(arr,0,sizeof(arr));
+		memset(visited,0,sizeof(visited));
 		for(int i=0;i<n;i++){
 			for(int j=0;j<m;j++){
 				cin>>arr[i][j];
