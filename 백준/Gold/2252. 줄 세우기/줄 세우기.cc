@@ -24,10 +24,10 @@ int main(void){
 	while(!q.empty()){
 		int now=q.front();
 		q.pop();
-		for(int i=0;i<v[now].size();i++){
-			degree[v[now][i]]--;
-			if(degree[v[now][i]]==0){
-				q.push(v[now][i]);
+		for(auto a:v[now]){
+			degree[a]--;
+			if(degree[a]==0){
+				q.push(a);
 			}
 		}
 		cout<<now<<" ";
