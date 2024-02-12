@@ -9,12 +9,12 @@ void bfs(){
 	while(!q.empty()){
 		int now=q.front().first;
 		int cnt=q.front().second;
-		q.pop();
 		if(now==g){
 			cout<<cnt;
 			ansflag=true;
 			break;
 		}
+		q.pop();
 		int up=now+u;
 		int down=now-d;
 		if(up<=f&&vis[up]==false){
