@@ -12,12 +12,10 @@ long long ccw(const point &a, const point &b, const point &c) {
 }
 
 point p[100001];
-int s[100001];
-int top = 0;
 
 //x좌표가 같다면 y내림차순
 //y좌표가 같다면 x오름차순
-//아니라면 y내림차숝
+//아니라면 y내림차순
 bool cmp(const point &a, const point &b) {
   long long c = ccw(p[0], a, b);
   if (c == 0) {
@@ -33,8 +31,6 @@ bool cmp(const point &a, const point &b) {
   }
   return c > 0;
 }
-
-void push(int n) { s[top++] = n; }
 
 int main(void) {
   ios::sync_with_stdio(false);
