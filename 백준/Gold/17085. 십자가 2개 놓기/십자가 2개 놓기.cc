@@ -4,42 +4,39 @@ using namespace std;
 string arr[15];
 bool vis[15][15];
 int n, m;
-
 void check(int a, int b, int size) {
   vis[a][b] = true;
   for (int i = 1; i <= size; i++) {
-    if (a - i >= 0) vis[a - i][b] = true;
-    if (a + i < n) vis[a + i][b] = true;
-    if (b - i >= 0) vis[a][b - i] = true;
-    if (b + i < m) vis[a][b + i] = true;
+    vis[a][b - i] = true;
+    vis[a][b + i] = true;
+    vis[a + i][b] = true;
+    vis[a - i][b] = true;
   }
 }
-
 void uncheck(int a, int b, int size) {
   vis[a][b] = false;
   for (int i = 1; i <= size; i++) {
-    if (a - i >= 0) vis[a - i][b] = false;
-    if (a + i < n) vis[a + i][b] = false;
-    if (b - i >= 0) vis[a][b - i] = false;
-    if (b + i < m) vis[a][b + i] = false;
+    vis[a][b - i] = false;
+    vis[a][b + i] = false;
+    vis[a + i][b] = false;
+    vis[a - i][b] = false;
   }
 }
 
 int mxsize(int a, int b) {
   int able = min(min(a, n - a - 1), min(b, m - b - 1));
   for (int i = 1; i <= able; i++) {
-    if (arr[a + i][b] != '#' || vis[a + i][b])
+    if (arr[a + i][b] != '#' || vis[a + i][b] == true)
       return i - 1;
-    if (arr[a - i][b] != '#' || vis[a - i][b])
+    if (arr[a - i][b] != '#' || vis[a - i][b] == true)
       return i - 1;
-    if (arr[a][b + i] != '#' || vis[a][b + i])
+    if (arr[a][b + i] != '#' || vis[a][b + i] == true)
       return i - 1;
-    if (arr[a][b - i] != '#' || vis[a][b - i])
+    if (arr[a][b - i] != '#' || vis[a][b - i] == true)
       return i - 1;
   }
   return able;
 }
-
 int main(void) {
   ios::sync_with_stdio(false);
   cin.tie(NULL);
