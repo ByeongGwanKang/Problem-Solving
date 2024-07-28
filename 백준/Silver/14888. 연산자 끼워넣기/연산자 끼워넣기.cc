@@ -28,11 +28,7 @@ void BT(int now, int idx) {
   }
   if (op[3] > 0) {
     op[3]--;
-    if (now < 0) {
-      BT(-(-now / arr[idx]), idx + 1);
-    } else {
-      BT(now / arr[idx], idx + 1);
-    }
+    BT(now / arr[idx], idx + 1);
     op[3]++;
   }
 }
