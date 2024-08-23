@@ -12,7 +12,7 @@ int binary_to_int(string s) {
   }
   return ret;
 }
-int dist[2048];
+int dist[1024];
 int main(void) {
   ios::sync_with_stdio(false);
   cin.tie(NULL);
@@ -37,7 +37,7 @@ int main(void) {
         dist[nxt] = dist[now] + 1;
       }
     }
-    if (now + 1 < 2048 && dist[now + 1] == -1) {
+    if (now + 1 < 1024 && dist[now + 1] == -1) {
       q.push(now + 1);
       dist[now + 1] = dist[now] + 1;
     }
